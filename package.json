@@ -7,8 +7,17 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"@expo/vector-icons": "^5.0.0",
+		"native-base": "^2.1.5",
 		"react": "16.0.0-alpha.12",
-		"react-native": "0.45.1"
+		"react-native": "0.45.1",
+		"react-native-cardstack": "^1.0.1",
+		"react-native-swiper": "^1.5.4",
+		"react-navigation": "^1.0.0-beta.11",
+		"react-redux": "^5.0.5",
+		"redux": "^3.7.0",
+		"redux-saga": "^0.15.3",
+		"redux-thunk": "^2.2.0"
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",

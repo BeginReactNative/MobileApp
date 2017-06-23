@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-
+import { StyleProvider,Container } from 'native-base';
+import Test from './screens/TestScreen';
+import RootNav from './navigations/RootNav';
+import getTheme from '../native-base-theme/components';
+import material from '../native-base-theme/variables/material';
 class App extends Component {
-    state = {  }
     render() {
         return (
-            <View>
-            </View>    
+            <StyleProvider style={getTheme(material)}>
+                <Container>
+                    <RootNav />
+                </Container>
+                
+            </StyleProvider>
         );
     }
 }
