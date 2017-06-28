@@ -8,7 +8,7 @@ const CreateNav = StackNavigator({
     CreatedSCR: {
         screen: Created,
         navigationOptions: {
-            header: null,
+            header: null
             
         }
     },
