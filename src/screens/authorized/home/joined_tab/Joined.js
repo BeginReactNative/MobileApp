@@ -6,7 +6,7 @@ class Joined extends Component {
         return (
             <View style={{flex: 1}}>
                 <Header 
-                openMenu={() => this.props.navigation.navigate('CourseSCR')}
+                 openMenu={() => this.props.navigation.navigate('CourseSCR')}
                  title={'LoxoToeic'}
                 />
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('CourseSCR')}>

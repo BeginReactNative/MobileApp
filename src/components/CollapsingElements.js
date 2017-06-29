@@ -6,8 +6,8 @@ class Panel extends Component{
         super(props);
 
         this.icons = {     //Step 2
-            'up'    : require('../media/icon/down.png'),
-            'down'  : require('../media/icon/up.png')
+            'up'    : require('../media/icon/up.png'),
+            'down'  : require('../media/icon/down.png')
         };
 
         this.state = {       //Step 3

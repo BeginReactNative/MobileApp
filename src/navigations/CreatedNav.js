@@ -13,7 +13,11 @@ const CreateNav = StackNavigator({
         }
     },
     JoinSCR: {
-        screen: Join
+        screen: Join,
+        navigationOptions: {
+            header: null,
+            tabBarVisible: false
+        }
     },
     VoteSCR: {
         screen: Vote

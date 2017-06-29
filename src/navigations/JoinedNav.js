@@ -5,7 +5,8 @@ const JoinedNav = StackNavigator({
     JoinedSCR: {
         screen: Joined,
         navigationOptions: {
-            header: null
+            header: null,
+           
         }
     },
     CourseSCR: {

@@ -4,6 +4,14 @@ import {View, Text,StyleSheet,
         ScrollView
 } from 'react-native';
 import {Icon,Button} from 'native-base';
+import StarRating from 'react-native-star-rating';
+import PopupDialog, {
+  DialogTitle,
+  DialogButton,
+  SlideAnimation,
+  ScaleAnimation,
+  DefaultAnimation,
+} from 'react-native-popup-dialog';
 import Header from '../../../../components/Header';
 import Courses from '../../home/created_tab/People';
 
@@ -11,8 +19,14 @@ class Description extends Component {
     constructor(props){
         super(props);
         this.state = {
-            course: {}
+            course: {},
+            starCount: 3.5
         }
+    }
+    onStarRatingPress(rating) {
+        this.setState({
+            starCount: rating
+        });
     }
 
     componentDidMount() {
@@ -39,38 +53,54 @@ class Description extends Component {
         return(
             <View style={styles.container}>
                     <Image source={{uri: this.state.course.avatar }}
-                           style={{width: width - 50, height: 150,margin:20}}
+                           style={{width: width - 50, height: 120,margin:10}}
                        />
-                <View style={styles.infoStyle}>
-                    <View style={styles.infoText}>
-                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>{this.state.course.name}</Text>
-                        <Text style={[...styles.textStyle,{color: '#696969' }]}>{this.state.course.shortDescription}</Text>
-                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>Create by {this.state.course.ownerName}</Text>
+                    <View style={styles.infoStyle}>
+                        <View style={styles.infoText}>
+                            <Text style={[...styles.textStyle, { fontWeight: 'bold' }]}>{this.state.course.name}</Text>
+                            <Text style={[...styles.textStyle, { color: '#696969' }]}>{this.state.course.shortDescription}</Text>
+                            <Text style={[...styles.textStyle, { fontWeight: 'bold' }]}>Create by {this.state.course.ownerName}</Text>
+                            <PopupDialog
+                                dialogTitle={<DialogTitle title="Dialog Title" />}
+                                ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+                                dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
+                            >
+                                <View>
+                                    <Text>{this.state.rating}</Text>
+                                </View>
+                            </PopupDialog>
+                        </View>
+
+                        <View style={styles.rateView}>
+                            <StarRating
+                                disabled={false}
+                                starSize={20}
+                                emptyStar={'ios-star-outline'}
+                                fullStar={'ios-star'}
+                                halfStar={'ios-star-half'}
+                                iconSet={'Ionicons'}
+                                maxStars={5}
+                                rating={this.state.starCount}
+                                selectedStar={(rating) => this.onStarRatingPress(rating)}
+                                starColor={'red'}
+                            />
+                            <View style={{ width: 150 }} />
+                            <Button light onPress={() => {this.popupDialog.show()}}><Text>Vote</Text></Button>
+                        </View>
+                        <Button
+                            primary style={{ marginLeft: (width / 2) - 40 }}
+                            onPress={() => { this.props.navigation.navigate('JoinSCR') }}
+                        >
+                            <Text style={{color:'#fff'}}>Join</Text>
+                        </Button>
+
+
+                        <Text>{this.state.course.description}</Text>
+
+
+
+
                     </View>
-                  
-                    <View style={styles.rateView}>
-                        <Icon name='star' size={20}/>
-                        <Icon name='star' />
-                        <Icon name='star' />
-                        <Icon name='star' />
-                        <Icon name='star'/>
-                        <View style={{width: 150}}/>
-                        <Button light><Text>Vote</Text></Button>
-                    </View>
-                    <Button 
-                        primary style={{marginLeft: (width / 2) - 40}}
-                        onPress={() => {this.props.navigation.navigate('JoinSCR')}}
-                    >
-                    <Text>Join</Text>
-                    </Button>
-                    
-                      
-                         <Text>{this.state.course.description}</Text>
-                      
-                        
-                    
-                    
-                </View>
             </View>      
         );
     }
@@ -89,7 +119,7 @@ const styles = StyleSheet.create({
        
     },
     infoStyle: {
-        height: height * 0.3,
+        flex:1,
         padding: 15,
         justifyContent: 'space-between',
         

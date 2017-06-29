@@ -24,6 +24,7 @@ const ProfilePicture = ({ imgSrc, borderColor }) => (
 );
 
 const DetailsRow = ({ icon, title, summary, createDate }) => {
+   
     return (
         <View style={styles.detailsRow}>
             <View style={styles.detailsIcon}>
