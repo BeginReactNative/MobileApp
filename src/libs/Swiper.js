@@ -82,7 +82,7 @@ export default class SwiperAnimated extends PureComponent {
         stackDepth: PropTypes.number,
         onClick: PropTypes.func,
         onRightSwipe: PropTypes.func,
-        onLeftSwipe: PropTypes.func,
+     //   onLeftSwipe: PropTypes.func,
         renderCard: PropTypes.func,
         onRemoveCard: PropTypes.func,
         dragY: PropTypes.bool,
@@ -223,7 +223,7 @@ export default class SwiperAnimated extends PureComponent {
     }; e
 
     handlePanResponderMove = () => Animated.event([
-        null, { dx: this.pan.x, dy: this.props.dragY ? this.pan.y : new Animated.Value(0) },
+        null, { dx: this.pan.y, dy: this.props.dragY ? this.pan.x : new Animated.Value(0) },
     ]);
 
     handlePanResponderEnd = (e, { vx, vy, dx, dy }) => {
@@ -503,7 +503,7 @@ export default class SwiperAnimated extends PureComponent {
                 
                     <View
                         style={[styles.dot, { backgroundColor: paginationDotColor || '#C5C5C5' },
-                        index >= i ? { backgroundColor: paginationActiveDotColor || '#4D4D4E',borderColor: paginationActiveDotBorder } : null]}
+                        index !== i ? { backgroundColor: paginationActiveDotColor || '#4D4D4E',borderColor: paginationActiveDotBorder } : null]}
 
                     >
                         <Text>{i + 1}</Text>

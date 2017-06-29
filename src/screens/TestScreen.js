@@ -17,9 +17,12 @@ class Game extends Component {
        
         return (
             <Swiper
-            paginationDotColor={'#C5C5C5'} 
-            paginationActiveDotColor={'#fff'}
+            paginationDotColor={'#fff'} 
+            paginationActiveDotColor={'#C5C5C5'}
             showPaginationBelow={true}
+            style={{backgroundColor:'#009688'}}
+            smoothTransition
+            loop
             
             >  
             {
@@ -29,6 +32,8 @@ class Game extends Component {
                                     index={exp.id}
                                     question={exp.question}
                                     answers={exp.answers}
+                                    correct={exp.correct}
+                                    navigation={() => this.props.navigation.navigate('FinishSCR')}
                                 />
                             </View>
                 })

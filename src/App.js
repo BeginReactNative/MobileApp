@@ -9,7 +9,7 @@ class App extends Component {
         return (
             <StyleProvider style={getTheme(material)}>
                 <Container>
-                    <Test />
+                    <RootNav />
                 </Container>
                 
             </StyleProvider>

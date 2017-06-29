@@ -5,20 +5,47 @@ import {View, Text,StyleSheet,
 } from 'react-native';
 import {Icon,Button} from 'native-base';
 import Header from '../../../../components/Header';
+import Courses from '../../home/created_tab/People';
 
 class Description extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            course: {}
+        }
+    }
+
+    componentDidMount() {
+        this.getCourseById(this.props.navigation.state.params.courseId)
+       
+       
+        
+    }
+    getCourseById(id) {
+        for (var index = 0; index < Courses.length; index++) {
+           if(Courses[index].id == this.props.navigation.state.params.courseId) {
+               this.setState({
+                   course: Courses[index]
+                   
+               })
+               console.log('AAA',this.state.course)
+           }
+        }
+    }
     render() {
-          console.log('Navigation',this.props.navigation)
+        
+    
+         
         return(
             <View style={styles.container}>
-                    <Image source={{uri: 'https://blog.jscrambler.com/content/images/2016/12/react_native_banner-min.png'}}
+                    <Image source={{uri: this.state.course.avatar }}
                            style={{width: width - 50, height: 150,margin:20}}
                        />
                 <View style={styles.infoStyle}>
                     <View style={styles.infoText}>
-                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>{this.props.name}</Text>
-                        <Text style={[...styles.textStyle,{color: '#696969' }]}>{this.props.shortDes}</Text>
-                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>Create by {this.props.user}</Text>
+                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>{this.state.course.name}</Text>
+                        <Text style={[...styles.textStyle,{color: '#696969' }]}>{this.state.course.shortDescription}</Text>
+                        <Text style={[...styles.textStyle,{fontWeight: 'bold' }]}>Create by {this.state.course.ownerName}</Text>
                     </View>
                   
                     <View style={styles.rateView}>
@@ -38,7 +65,7 @@ class Description extends Component {
                     </Button>
                     
                       
-                         <Text>{this.props.Description}</Text>
+                         <Text>{this.state.course.description}</Text>
                       
                         
                     

@@ -46,7 +46,7 @@ class Created extends Component {
                             
                             <TeamMemberCard
                              {...course} 
-                             gotoCourse={() => {this.props.navigation.navigate('CourseSCR')}}/>
+                             gotoCourse={() => {this.props.navigation.navigate('CourseSCR',{courseId:course.id})}}/>
                         </Card>
                     )}
 

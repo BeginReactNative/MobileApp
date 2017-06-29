@@ -32,9 +32,9 @@ export default class HomeScreen extends React.Component {
                     <Left>
                         <Button
                             transparent
-                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                            onPress={() => this.props.navigation.goBack()}
                         >
-                            <Icon name="menu" />
+                            <Icon name="md-arrow-round-back" />
                         </Button>
                     </Left>
                     <Body>
@@ -67,7 +67,7 @@ export default class HomeScreen extends React.Component {
                         <Description navigation={this.props.navigation}/>
                     </Tab>
                     <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Lesson />
+                        <Lesson navigation={this.props.navigation}/>
                     </Tab>
                      <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Document />

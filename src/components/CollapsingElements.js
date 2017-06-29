@@ -1,5 +1,6 @@
 import React,{Component} from 'react'; 
 import { StyleSheet,Text,View,Image,TouchableHighlight,Animated,TouchableOpacity } from 'react-native';
+import Topics from '../api/apiTopic';
 class Panel extends Component{
     constructor(props){
         super(props);
@@ -17,27 +18,7 @@ class Panel extends Component{
             dataSource:[],
         };
     }
-    componentDidMount() {
-        
-    // fetch Course Data from API by ID
-    return fetch(`http://api-dot-hola-edu.appspot.com/api?action=getTopics&ids=[${this.props.topicID}]`)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.data,
-           
-        }, function() {
-          // do something with new state
-          console.log('TOPICCCCCCCCC',this.state.dataSource)
-          
-        });
-      })
-      
-      .catch((error) => {
-        console.error(error);
-      });
-      
+    componentDidMount() {  
   }
     toggle(){
         let initialValue    = this.state.expanded? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
@@ -95,9 +76,9 @@ class Panel extends Component{
                 
                 <View style={styles.body} onLayout={this._setMaxHeight.bind(this)}>
                    {
-                    this.state.dataSource.length ? (
-                        this.state.dataSource.map((topic, i) => {
-                                return <TouchableOpacity onPress={() => this.props.navigation.navigate('LessonsDetail',{lesID:`${this.props.topicID}` })}>
+                    Topics.length ? (
+                        Topics.map((topic, i) => {
+                                return <TouchableOpacity onPress={() => {}}>
                                     <View key={i} style={styles.lessonView}>
 
                                         <Text>

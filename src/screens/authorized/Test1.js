@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text,TouchableOpacity } from 'react-native';
 import getData from '../../api/apiExcercies';
-
+import {ABC} from '../../components/ABC';
 class Choose extends Component {
  constructor(props) {
         super(props);
@@ -27,6 +27,7 @@ class Choose extends Component {
                     <TouchableOpacity onPress={this.startGame.bind(this)}>
                     <Text>STart</Text>
                     </TouchableOpacity>
+                    <ABC />
             </View>
         );
     }

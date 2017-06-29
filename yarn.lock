@@ -3157,6 +3157,12 @@ react-devtools-core@^2.1.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
+react-native-bar-collapsible@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/react-native-bar-collapsible/-/react-native-bar-collapsible-1.5.2.tgz#1fff400f8b3b98783f25140bf7e3217808f84c95"
+  dependencies:
+    react-native-vector-icons "^3.0.0"
+
 react-native-cardstack@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-native-cardstack/-/react-native-cardstack-1.0.1.tgz#f0c5a7093bfb424bb72743bad6bd43b754f08bcb"
@@ -3190,6 +3196,10 @@ react-native-easy-grid@0.1.7:
   resolved "https://registry.yarnpkg.com/react-native-easy-grid/-/react-native-easy-grid-0.1.7.tgz#44205cc39adff32a8a20efa8451d76a4499f0a3f"
   dependencies:
     lodash "^4.11.1"
+
+react-native-flexi-radio-button@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-native-flexi-radio-button/-/react-native-flexi-radio-button-0.2.1.tgz#8b76274480c90eb87bfdc349e24ea64cde53cff3"
 
 react-native-keyboard-aware-scroll-view@0.2.9:
   version "0.2.9"
@@ -3247,6 +3257,13 @@ react-native-vector-icons@^2.0.1:
   dependencies:
     lodash "^4.0.0"
     yargs "^4.7.0"
+
+react-native-vector-icons@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-3.0.0.tgz#a2f63757dee4fb89f67eef660e25e86926ae6827"
+  dependencies:
+    lodash "^4.0.0"
+    yargs "^6.3.0"
 
 react-native-vector-icons@^4.2.0:
   version "4.2.0"

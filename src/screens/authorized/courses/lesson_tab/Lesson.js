@@ -1,29 +1,53 @@
-import React, { Component } from 'react';
+
+import React , {Component} from 'react';
 import {View, Text, StyleSheet,ScrollView} from 'react-native';
 import Panel from '../../../../components/CollapsingElements';
+import Topic from '../../../../api/apiTopic';
 
-class Lessons extends Component {
+class Lesson extends Component {
     constructor(props) {
     super(props);
   
     this.state = {
-      isLoading: true,
+
       dataSource:[],
      
     }
   }
-
+    componentDidMount() {
+        
   
+      
+  }
 
 
     render() {
     
         return(
-           <View></View>
+            <ScrollView style={styles.container}>
+            
+            {
+                    Topic.length ? (
+                        Topic.map((topic, i) => {
+                            return <View key={i} >
+                                <Panel title={topic.name}
+                                       topicID={topic.id}
+                                       navigation={this.props.navigation}
+                                       
+                                >
+                                
+                                </Panel>
+                               
+                            </View>
+                        })
+                    ) : null
+                }
+                
+              
+            </ScrollView>
         )
     }
 }
-
 var styles = StyleSheet.create({
   container: {
     flex            : 1,
@@ -32,5 +56,7 @@ var styles = StyleSheet.create({
   },
   
 });
-
-export default Lessons;
+export default Lesson;
+/**
+ *   
+ */
