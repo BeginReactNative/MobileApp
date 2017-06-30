@@ -22,7 +22,7 @@ export default class Headers extends Component {
     }
     render() {
         return(
-             <Container >
+             
                 <Header hasTabs>
                     <Left>
                         <Button
@@ -57,7 +57,7 @@ export default class Headers extends Component {
                     </Right>
 
                 </Header>
-                </Container>
+                
         )
     }
 }

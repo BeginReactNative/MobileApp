@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text,TouchableOpacity } from 'react-native';
 import getData from '../../api/apiExcercies';
 import Bar from 'react-native-bar-collapsible';
+import Card from '../../components/CardPopular';
 class Choose extends Component {
  constructor(props) {
         super(props);
@@ -23,10 +24,9 @@ class Choose extends Component {
     }
     render() {
         return (
-            <View style={{flex: 1, justifyContent: 'center',alignItems: 'center'}}>
-                    <TouchableOpacity onPress={this.startGame.bind(this)}>
-                    <Text>STart</Text>
-                    </TouchableOpacity>
+            <View style={{flex: 1}}>
+                    <Card />
+                  
                     
             </View>
         );
@@ -34,3 +34,8 @@ class Choose extends Component {
 }
 
 export default Choose;
+/**
+ *   <TouchableOpacity onPress={this.startGame.bind(this)}>
+                    <Text>STart</Text>
+                    </TouchableOpacity>
+ */

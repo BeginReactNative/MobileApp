@@ -42,7 +42,7 @@ class Description extends Component {
                    course: Courses[index]
                    
                })
-               console.log('AAA',this.state.course)
+              
            }
         }
     }
@@ -53,22 +53,14 @@ class Description extends Component {
         return(
             <View style={styles.container}>
                     <Image source={{uri: this.state.course.avatar }}
-                           style={{width: width - 50, height: 120,margin:10}}
+                           style={{width: width - 50, height: 150,margin:10}}
                        />
                     <View style={styles.infoStyle}>
                         <View style={styles.infoText}>
                             <Text style={[...styles.textStyle, { fontWeight: 'bold' }]}>{this.state.course.name}</Text>
                             <Text style={[...styles.textStyle, { color: '#696969' }]}>{this.state.course.shortDescription}</Text>
                             <Text style={[...styles.textStyle, { fontWeight: 'bold' }]}>Create by {this.state.course.ownerName}</Text>
-                            <PopupDialog
-                                dialogTitle={<DialogTitle title="Dialog Title" />}
-                                ref={(popupDialog) => { this.popupDialog = popupDialog; }}
-                                dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
-                            >
-                                <View>
-                                    <Text>{this.state.rating}</Text>
-                                </View>
-                            </PopupDialog>
+                           
                         </View>
 
                         <View style={styles.rateView}>
@@ -94,13 +86,23 @@ class Description extends Component {
                             <Text style={{color:'#fff'}}>Join</Text>
                         </Button>
 
-
+                       
                         <Text>{this.state.course.description}</Text>
 
 
 
 
                     </View>
+                      <PopupDialog
+                                dialogTitle={<DialogTitle title="Rate Me" />}
+                                ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+                                dialogAnimation={new SlideAnimation({ slideFrom: 'bottom' })}
+                            >
+                                <View>
+                                <Text>Thank for your feedback!Have you fun!!!</Text>
+                                    <Text>You rated {this.state.starCount} star!</Text>
+                                </View>
+                            </PopupDialog>
             </View>      
         );
     }
