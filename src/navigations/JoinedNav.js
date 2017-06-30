@@ -9,7 +9,7 @@ const JoinedNav = StackNavigator({
            
         }
     },
-    CourseSCR: {
+    Course: {
         screen: Course,
         navigationOptions: {
             header: null,

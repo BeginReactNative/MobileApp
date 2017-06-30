@@ -19,7 +19,7 @@ class Popular extends Component {
                      sliderWidth={width}
                     autoplay
                     
-                    itemWidth={width - 30}
+                    itemWidth={width-20}
                     
                 >
                         <CardItem />
@@ -33,7 +33,7 @@ class Popular extends Component {
                      sliderWidth={width}
                     autoplay
                     
-                    itemWidth={width - 30}
+                    itemWidth={width - 20}
                     
                 >
                         <CardItem />
@@ -47,7 +47,7 @@ class Popular extends Component {
                      sliderWidth={width}
                     autoplay
                     
-                    itemWidth={width - 30}
+                    itemWidth={width -20}
                     
                 >
                         <CardItem />
@@ -60,8 +60,8 @@ class Popular extends Component {
                      ref={(carousel) => { this._carousel = carousel; }}
                      sliderWidth={width}
                     autoplay
-                    
-                    itemWidth={width - 30}
+
+                    itemWidth={width -20}
                     
                 >
                         <CardItem />
