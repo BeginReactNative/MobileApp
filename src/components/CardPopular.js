@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
             width: 0,
             height: 3
         },
+        maxWidth: width,
         shadowRadius: 5,
         shadowOpacity: 1.0
     },
