@@ -4,53 +4,58 @@ import {
     StyleSheet,
     Text,
     Image,
+    ScrollView,
    // TouchableOpacity,
     Dimensions,
     View
 } from 'react-native';
 import {Icon} from 'native-base';
-import { CardStack, Card } from 'react-native-cardstack'
+import Card from '../../../../components/CardCreated';
+
+import {connect} from 'react-redux';
+import {fetchCoursesById} from '../../../../redux/actions/dataAction';
 import Header from '../../../../components/Header';
-import course from './People';
+
 import TeamMemberCard from '../../../../components/CardItems';
-import HotCourse from '../../../../components/HotCourse';
+
 // Staless component 
 
 
 class Created extends Component {
+    constructor(props){
+        super(props);
+        url= `http://api-dot-hola-edu.appspot.com/api?action=getRandomCourses`
+    }
+    componentWillMount(){
+        this.props.getCourses(url)
+    }
     render() {
+       
         return (
             <View style={{ flex: 1 }}>
                 <Header
                     openMenu={() => this.props.navigation.navigate('DrawerOpen')}
                     title={'LoxoToeic'}
                 />
-                <View style={{ flex: 1 }}>
-                   
-                </View>
-                <CardStack
-                    height={400}
-                    width={width}
-                    transitionDuration={300}
-                    backgroundColor='#f8f8f8'
-                    hoverOffset={60}
-                    
-                >
-                    
-                    {course.map((course, i) =>
-                        <Card
-                            key={i}
-                            onPress={() => console.log('onPress called')}
-                            onLongPress={() => console.log('long press called')}
-                            backgroundColor={course.background}>
+                {
+                    this.props.courses.isFetching && <Text>Loading</Text>
+                }
+                    <ScrollView>
+                     {this.props.courses.data.map((course, i) =>
+                        <Card key={i}
+                            avatar={course.avatar}
+                            createDate={course.createDate}
+                            shortDescription={course.shortDescription}
+                            name={course.name}
+                            ownerName={course.ownerName}
+                            navigation={() => {this.props.navigation.navigate('CourseSCR',{courseId:course.id})}}
                             
-                            <TeamMemberCard
-                             {...course} 
-                             gotoCourse={() => {this.props.navigation.navigate('CourseSCR',{courseId:course.id})}}/>
-                        </Card>
+                        />
                     )}
+                    </ScrollView>
+                   
 
-                </CardStack>
+               
             </View>
         );
     }
@@ -68,5 +73,16 @@ const styles = StyleSheet.create({
 	},
 	
 });
-
-export default Created;
+export const mapStateToProps = (state) => {
+    return {
+        courses: state.dataReducer
+    }
+}
+export const mapDispatchToProps = (dispatch) => {
+    return {
+        getCourses: (url) => {
+            dispatch(fetchCoursesById(url))
+        }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Created);

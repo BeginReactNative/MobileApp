@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
 import { View, Text,StyleSheet,Dimensions,Image, TouchableOpacity,Animated } from 'react-native';
-
+import {connect} from 'react-redux';
+import {fetchCoursesById} from '../redux/actions/dataAction';
 class CardItem extends Component  {
     constructor(props) {
         super(props);
-        this.state = {
-            slideAnimate : new Animated.Value(-1000)
-        }
+        url=`http://api-dot-hola-edu.appspot.com/api?action=getCourses&ids=[${this.props.courseId}]`
     }
 
        componentDidMount() {
-        Animated.timing(
-            this.state.slideAnimate,
-            {
-                toValue:0,
-                duration: this.props.time 
-            }
-        ).start();
+       this.props.getCourseById(url)
     }
     render() {
-         const marginLeft = this.state.slideAnimate;
+        
         return(
-        <Animated.View style={[styles.container,{marginLeft}]}>
-             <View style={styles.header}>
+        <Animated.View style={styles.container}>
+            <View style={styles.header}>
                 <View style={styles.title}>
                 <Text style={{color:'#919191',marginBottom: 10}}>{this.props.name}</Text>
                 <Text style={{fontSize: 20}}>{this.props.ownerName}</Text>
@@ -42,7 +35,7 @@ class CardItem extends Component  {
                 <TouchableOpacity>
                     <Text style={{fontSize: 18,color: '#5C6BC0', marginRight: 20}}>Comment</Text>
                 </TouchableOpacity>
-                 <TouchableOpacity onPress={() =>{}}>
+                 <TouchableOpacity onPress={this.props.navigation.bind(this)}>
                     <Text style={{fontSize: 18,color: '#5C6BC0'}}>Detail</Text>
                 </TouchableOpacity>
             </View>
@@ -98,5 +91,19 @@ const styles = StyleSheet.create({
         marginRight:20,
         marginBottom:20
     }
-    })
-export default CardItem;
+})
+const mapStateToProps = (state) => {
+    console.log('mapStateToProps',state)
+    return {
+        courseById: state.dataReducer
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    
+    return {
+        getCourseById: (url) => {
+            dispatch(fetchCoursesById(url))
+        }
+    }
+}
+export default  connect(mapDispatchToProps)(CardItem);

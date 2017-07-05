@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import {Icon} from 'native-base';
 import { CardStack, Card } from 'react-native-cardstack'
-
 import people from '../screens/authorized/home/created_tab/People';
 
 
