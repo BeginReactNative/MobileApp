@@ -5,16 +5,14 @@ import {fetchCoursesById} from '../redux/actions/dataAction';
 class CardItem extends Component  {
     constructor(props) {
         super(props);
-        url=`http://api-dot-hola-edu.appspot.com/api?action=getCourses&ids=[${this.props.courseId}]`
+       
     }
-
        componentDidMount() {
-       this.props.getCourseById(url)
     }
     render() {
-        
+        console.log('CARD CREATED PROPS', this.props)
         return(
-        <Animated.View style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.header}>
                 <View style={styles.title}>
                 <Text style={{color:'#919191',marginBottom: 10}}>{this.props.name}</Text>
@@ -23,7 +21,7 @@ class CardItem extends Component  {
                 <View style={styles.imgAvatar}>
                    <Image 
                     style={{flex:1}}
-                    source={{uri: this.props.avatar}} />
+                    source={{uri: ''}} />
                 </View>
             </View>
 
@@ -39,7 +37,7 @@ class CardItem extends Component  {
                     <Text style={{fontSize: 18,color: '#5C6BC0'}}>Detail</Text>
                 </TouchableOpacity>
             </View>
-        </Animated.View>
+        </View>
     )
     }
     
@@ -92,18 +90,5 @@ const styles = StyleSheet.create({
         marginBottom:20
     }
 })
-const mapStateToProps = (state) => {
-    console.log('mapStateToProps',state)
-    return {
-        courseById: state.dataReducer
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    
-    return {
-        getCourseById: (url) => {
-            dispatch(fetchCoursesById(url))
-        }
-    }
-}
-export default  connect(mapDispatchToProps)(CardItem);
+
+export default  connect()(CardItem);

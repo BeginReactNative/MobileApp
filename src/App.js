@@ -3,7 +3,7 @@ import { StyleProvider,Container } from 'native-base';
 import { Provider } from 'react-redux';
 import store from './configureStore';
 import Test from './navigations/TestNav';
-import TestRedux from './TestRedux';
+
 import RootNav from './navigations/RootNav';
 import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';

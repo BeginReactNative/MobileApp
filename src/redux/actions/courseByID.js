@@ -1,6 +1,6 @@
 import {FETCH_COURSE, FETCH_COURSE_FAILURE, FETCH_COURSE_SUCCESS} from './types';
 
-export  function getCourseById(params) {
+export  function getCourseById() {
     return {
         type: FETCH_COURSE
     }
@@ -17,13 +17,12 @@ export function getCourseByIdFailure() {
     }
 }
 
-export function fetchCoursesById(url) {
+export function fetchCourseById(url) {
     return (dispatch) => {
         dispatch(getCourseById())
         fetch(url)
             .then(data => data.json())
             .then(json => {
-               console.log('CCCCC:', json.data)
                 dispatch(getCourseByIdSuccess(json.data))
             })
              .catch(err => dispatch(getCourseByIdFailure(err)))

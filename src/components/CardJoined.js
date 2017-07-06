@@ -4,6 +4,7 @@ import { View, Text,StyleSheet,Dimensions,Image, TouchableOpacity,Animated } fro
 class CardItem extends Component  {
     constructor(props) {
         super(props);
+        defaultAvatar = ''
         this.state = {
             slideAnimate : new Animated.Value(-1000)
         }
@@ -17,6 +18,14 @@ class CardItem extends Component  {
                 duration: this.props.time 
             }
         ).start();
+    
+    }
+    checkAvatar(str) {
+        if(str.length === 0){
+            console.log('Emply Avatar roiiii',str.length)
+            return this.props.defaultAvatar
+        }
+        else return str;
     }
     render() {
          const marginLeft = this.state.slideAnimate;
@@ -30,7 +39,7 @@ class CardItem extends Component  {
                 <View style={styles.imgAvatar}>
                    <Image 
                     style={{flex:1}}
-                    source={{uri: this.props.avatar}} />
+                    source={{uri: ''}} />
                 </View>
             </View>
 

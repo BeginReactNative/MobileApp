@@ -23,7 +23,7 @@ import Document from '../courses/document_tab/Document';
 
 
 export default class HomeScreen extends React.Component {
-   
+
 
     render() {
         return (
@@ -49,7 +49,7 @@ export default class HomeScreen extends React.Component {
                         </Button>
                         <Button
                             transparent
-                         onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
                         >
                             <Icon name="share" />
                         </Button>
@@ -64,22 +64,22 @@ export default class HomeScreen extends React.Component {
                 </Header>
                 <Tabs >
                     <Tab heading="Description" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
-                        <Description navigation={this.props.navigation}/>
+                        <Description navigation={this.props.navigation} />
                     </Tab>
                     <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Lesson navigation={this.props.navigation}/>
+                        <Lesson navigation={this.props.navigation} />
                     </Tab>
-                     <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                    <Tab heading="Document" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Document />
                     </Tab>
-                     <Tab heading="Discussion" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                    <Tab heading="Discussion" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Discussion />
                     </Tab>
-                   
+
 
                 </Tabs>
-                    
-                
+
+
             </Container>
         );
     }

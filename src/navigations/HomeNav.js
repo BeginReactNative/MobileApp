@@ -26,7 +26,7 @@ const HomeNav = TabNavigator({
         },
 
     },
-   
+    tabBarPosition: 'bottom',
     swipeEnabled: false,
    
 });

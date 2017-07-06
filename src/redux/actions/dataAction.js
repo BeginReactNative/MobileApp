@@ -24,7 +24,6 @@ export function fetchCoursesById(url) {
         fetch(url)
             .then(data => data.json())
             .then(json => {
-               console.log('BBBBBBB:', json.data)
                 dispatch(getDataSuccess(json.data))
             })
              .catch(err => dispatch(getDataFailure(err)))

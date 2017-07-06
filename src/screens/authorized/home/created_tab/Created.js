@@ -11,12 +11,11 @@ import {
 } from 'react-native';
 import {Icon} from 'native-base';
 import Card from '../../../../components/CardCreated';
-
 import {connect} from 'react-redux';
 import {fetchCoursesById} from '../../../../redux/actions/dataAction';
 import Header from '../../../../components/Header';
 
-import TeamMemberCard from '../../../../components/CardItems';
+
 
 // Staless component 
 

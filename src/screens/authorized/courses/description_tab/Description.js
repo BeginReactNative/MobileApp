@@ -15,7 +15,7 @@ import PopupDialog, {
 } from 'react-native-popup-dialog';
 import HTMLView from 'react-native-display-html';
 import { connect } from 'react-redux';
-import { fetchCoursesById } from '../../../../redux/actions/courseByID';
+import {fetchCourseById} from '../../../../redux/actions/courseByID';
 import Header from '../../../../components/Header';
 import Courses from '../../home/created_tab/People';
 
@@ -45,9 +45,9 @@ class Description extends Component {
     }
 
     render() {
-
+       
         const { course, isFetching } = this.props
-        console.log('ABABBD', course)
+        
 
         return (
             <View style={styles.container}>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
 
 })
 const mapStateToProps = (state) => {
-    console.log('ADFASDFASD', state)
+   
     return {
         course: state.courseById.data,
         isFetching: state.courseById.isFetching
@@ -153,7 +153,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getCourseById: (url) => {
-            dispatch(fetchCoursesById(url))
+            dispatch(fetchCourseById(url))
         }
     }
 }
