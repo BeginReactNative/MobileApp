@@ -17,7 +17,7 @@ class CardLesson extends Component {
         else {
            this.props.navigation.navigate('ExerciseSCR')
            this.props.getCards(`http://api-dot-hola-edu.appspot.com/api?action=getCards&ids=[${this.props.childrenIds}]`)
-            alert('Ben trong deo phai topic')
+            alert('Ben trong la Card')
         }
     }
     render() {
