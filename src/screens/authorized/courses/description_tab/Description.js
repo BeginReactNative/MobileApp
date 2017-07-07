@@ -91,10 +91,10 @@ class Description extends Component {
                                     <Text style={{ color: '#fff' }}>Join</Text>
                                 </Button>
                              
-                                    <View style={{height: 500,backgroundColor:'red',marginTop: 10 }}>
+                                    <View style={{height: 500,backgroundColor:'red',marginTop: 10}}>
                                     
                                     <WebView
-                                    style={{ backgroundColor: '#f4f7f9'}}
+                                    style={{ backgroundColor: '#f4f7f9',marginBottom: 20 }}
                                         source={{ html: e.description }}
                                     />
                                     </View>

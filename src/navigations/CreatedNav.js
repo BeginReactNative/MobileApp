@@ -4,6 +4,8 @@ import Course from '../screens/authorized/course/Course';
 import Popular from '../screens/authorized/home/popular_tab/Popular';
 import Join from '../screens/authorized/join/Join';
 import Vote from '../screens/authorized/vote/Vote';
+import LessonList from '../screens/authorized/courses/lesson_tab/LessonList';
+import Exercise from '../screens/authorized/courses/lesson_tab/Exercise';
 const CreateNav = StackNavigator({
     CreatedSCR: {
         screen: Created,
@@ -21,6 +23,20 @@ const CreateNav = StackNavigator({
     },
     VoteSCR: {
         screen: Vote
+    },
+    LessonListSCR: {
+        screen: LessonList,
+        navigationOptions: {
+           header: null,
+            tabBarVisible: false
+        }
+    },
+    ExerciseSCR : {
+        screen: Exercise,
+         navigationOptions: {
+            header: null,
+            tabBarVisible: false
+        }
     },
     CourseSCR: {
         screen: Course,

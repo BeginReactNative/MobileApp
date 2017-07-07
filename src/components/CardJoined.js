@@ -39,7 +39,7 @@ class CardItem extends Component  {
                 <View style={styles.imgAvatar}>
                    <Image 
                     style={{flex:1}}
-                    source={{uri: ''}} />
+                     />
                 </View>
             </View>
 
