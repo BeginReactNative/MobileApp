@@ -13,17 +13,16 @@ import PopupDialog, {
     ScaleAnimation,
     DefaultAnimation,
 } from 'react-native-popup-dialog';
-import HTMLView from 'react-native-display-html';
+
 import { connect } from 'react-redux';
-import {fetchCourseById} from '../../../../redux/actions/courseByID';
+import { fetchCourseById } from '../../../../redux/actions/courseByID';
 import Header from '../../../../components/Header';
 import Courses from '../../home/created_tab/People';
 
 class Description extends Component {
+
     constructor(props) {
         super(props);
-        htmlContent = '<p><a href="http://jsdf.co">&hearts; nice job!</a></p>',
-            htmlCode = `${this.props.course.description}`
         url = `http://api-dot-hola-edu.appspot.com/api?action=getCourses&ids=[${this.props.navigation.state.params.courseId}]`
         this.state = {
 
@@ -45,9 +44,9 @@ class Description extends Component {
     }
 
     render() {
-       
+
         const { course, isFetching } = this.props
-        
+
 
         return (
             <View style={styles.container}>
@@ -57,8 +56,8 @@ class Description extends Component {
                 {
                     course.map((e, i) =>
                         <View key={i}>
-                            <Image source={{ uri:course.avatar }}
-                                style={{ flex:1 }}
+                            <Image source={{ uri: course.avatar }}
+                                style={{ flex: 1 }}
                             />
                             <View style={styles.infoStyle}>
                                 <View style={styles.infoText}>
@@ -91,11 +90,15 @@ class Description extends Component {
                                 >
                                     <Text style={{ color: '#fff' }}>Join</Text>
                                 </Button>
-
-                                
-                                <Text>{e.description}</Text>
-
-
+                             
+                                    <View style={{height: 500,backgroundColor:'red',marginTop: 10 }}>
+                                    
+                                    <WebView
+                                    style={{ backgroundColor: '#f4f7f9'}}
+                                        source={{ html: e.description }}
+                                    />
+                                    </View>
+                              
                             </View>
                             <PopupDialog
                                 dialogTitle={<DialogTitle title="Rate Me" />}
@@ -144,7 +147,7 @@ const styles = StyleSheet.create({
 
 })
 const mapStateToProps = (state) => {
-   
+
     return {
         course: state.courseById.data,
         isFetching: state.courseById.isFetching
