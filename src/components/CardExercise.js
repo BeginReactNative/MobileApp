@@ -11,7 +11,7 @@ class CardExercise extends Component {
                     <Text style={[...styles.text,{fontWeight: 'bold'}]}>{this.props.index}{this.props.frontText}</Text>
                 </View>
                 <View style={styles.choices}>
-                    <Text style={[styles.text]}>{this.props.backText}</Text>
+                    <Text style={[{color: 'red'},...styles.text]}>{this.props.backText}</Text>
                     {
                         this.props.multiChoices.map((choice ,i) => (
                             <Text key={i} style={styles.text}>{choice}</Text>

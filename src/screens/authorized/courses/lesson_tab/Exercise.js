@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,Text,WebView,Dimensions,FlatList } from 'react-native';
+import { View,Text,WebView,Dimensions,FlatList,TouchableOpacity } from 'react-native';
 import {connect} from 'react-redux';
 import Swiper from 'react-native-swiper';
 import Carousel from 'react-native-snap-carousel';
@@ -46,7 +46,11 @@ class Exercise extends Component {
                             />
                         
                        </View>
-                    
+                       <View style={styles.buttonContainer}>
+                            <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.goBack()}}>
+                                <Text>BACK</Text>
+                            </TouchableOpacity>
+                       </View>
                        </View>
                        
                    ))
@@ -71,8 +75,25 @@ export default connect(mapStateToProps)(Exercise);
      web: {
          margin: 10,
          borderRadius:10,
-         
          backgroundColor: '#f4f7f9'
 
+     },
+     buttonContainer: {
+         alignItems: 'center',
+         justifyContent: 'center',
+         height: 50,
+         marginLeft: 20,
+         marginRight: 20,
+         marginTop: 5,
+         marginBottom: 5,
+         borderRadius: 10
+     },
+     button: {
+         backgroundColor: 'aqua',
+         width: 140,
+         height: 40,
+         borderRadius: 10,
+         justifyContent: 'center',
+         alignItems: 'center'
      }
  }
