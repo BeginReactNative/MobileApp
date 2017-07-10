@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, FlatList } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, FlatList,TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchTopicsById } from '../../../../redux/actions/topicID';
 import { fetchChildTopicsById } from '../../../../redux/actions/childTopicById';
@@ -47,6 +47,12 @@ class Lesson extends Component {
                     keyExtractor={item => item.id}
                     renderItem={this._renderItem}
                 />
+                <View style={styles.buttonContainer}>
+                            <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.goBack()}}>
+                                <Text>BACK</Text>
+                            </TouchableOpacity>
+                           
+                       </View>
             </View>
 
 
@@ -59,7 +65,25 @@ var styles = StyleSheet.create({
         backgroundColor: '#f4f7f9',
         paddingTop: 30
     },
-
+        buttonContainer: {
+         alignItems: 'center',
+         justifyContent: 'space-around',
+         height: 50,
+         marginLeft: 20,
+         marginRight: 20,
+         marginTop: 5,
+         marginBottom: 5,
+         borderRadius: 10,
+         flexDirection: 'row'
+     },
+     button: {
+         backgroundColor: 'aqua',
+         width: 140,
+         height: 40,
+         borderRadius: 10,
+         justifyContent: 'center',
+         alignItems: 'center'
+     }
 });
 const mapStateToProps = (state) => {
     return {

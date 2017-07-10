@@ -84,7 +84,7 @@ export default class GameView extends Component {
                             textIdQuestion = "Câu " + (j+1) + ":";
                             textQuestion = itemData.frontText;
                              var ABC = itemData.multiChoices.concat(itemData.backText)
-                            console.log('MultiChoices',ABC)
+                        
                             return (
                                 <View key={j} style={{ flex: 1, margin: 20 }}>
                                     <ScrollView>

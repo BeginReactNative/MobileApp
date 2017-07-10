@@ -5,6 +5,7 @@ import Popular from '../screens/authorized/home/popular_tab/Popular';
 import Join from '../screens/authorized/join/Join';
 import Vote from '../screens/authorized/vote/Vote';
 import LessonList from '../screens/authorized/courses/lesson_tab/LessonList';
+import LessonDetail from '../screens/authorized/courses/lesson_tab/LessonDetail';
 import Exercise from '../screens/authorized/courses/lesson_tab/Exercise';
 import Choose from '../screens/authorized/game/Choose';
 import Game from '../screens/authorized/game/GameView';
@@ -57,6 +58,13 @@ const CreateNav = StackNavigator({
     CourseSCR: {
         screen: Course,
         navigationOptions: {
+            header: null,
+            tabBarVisible: false
+        }
+    },
+    LessonDetailSCR: {
+          screen: LessonDetail,
+            navigationOptions: {
             header: null,
             tabBarVisible: false
         }

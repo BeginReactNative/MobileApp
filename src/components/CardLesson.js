@@ -9,15 +9,20 @@ class CardLesson extends Component {
         
     }
     checkChildType() {
-        if(this.props.childrentType === 1) {
+        if(this.props.childrenIds.length === 0) {
+            this.props.navigation.navigate('LessonDetailSCR')
+        }
+        else {
+            if(this.props.childrentType === 1) {
             this.props.getChildTopic(`http://api-dot-hola-edu.appspot.com/api?action=getTopics&ids=[${this.props.childrenIds}]`),
             this.props.navigation.navigate('LessonListSCR')
           
         }
-        else {
+        else{
            this.props.navigation.navigate('ExerciseSCR')
            this.props.getCards(`http://api-dot-hola-edu.appspot.com/api?action=getCards&ids=[${this.props.childrenIds}]`)
            
+        }
         }
     }
     render() {
@@ -29,7 +34,7 @@ class CardLesson extends Component {
                     <Text style={styles.textHeader}>{this.props.name}</Text>
                 </View>
                 <View style={styles.description}>
-                    <WebView source={{html: this.props.description}} /> 
+                    <WebView source={{html: this.props.description}} style={{backgroundColor: '#f4f7f9'}} /> 
                 </View>
                 <View style={styles.action}>
                     <Text>{this.props.childrenIds.length} lessons</Text>
