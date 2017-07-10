@@ -81,8 +81,10 @@ export default class GameView extends Component {
                 >
                     {
                         dataExam.map((itemData, j) => {
-                            textIdQuestion = "Câu " + itemData.id + ":";
-                            textQuestion = itemData.question;
+                            textIdQuestion = "Câu " + (j+1) + ":";
+                            textQuestion = itemData.frontText;
+                             var ABC = itemData.multiChoices.concat(itemData.backText)
+                            console.log('MultiChoices',ABC)
                             return (
                                 <View key={j} style={{ flex: 1, margin: 20 }}>
                                     <ScrollView>
@@ -90,8 +92,9 @@ export default class GameView extends Component {
                                         <Text style={styles.textContent}>{textQuestion}</Text>
                                         <View style={styles.line} />
                                         {
-                                            itemData.answers.map((itemAnser, i) => {
-                                                answer = itemAnser.answer;
+                                            
+                                            ABC.map((itemAnser, i) => {
+                                                answer = itemAnser;
                                                 listAnswer = ["A", "B", "C", "D"];
                                                 return (
                                                     <TouchableOpacity
@@ -115,7 +118,7 @@ export default class GameView extends Component {
                                                                 )
                                                         }
 
-                                                        <Text style={[styles.textContent, { marginLeft: 10 }]}>{answer}</Text>
+                                                        <Text style={[styles.textContent, { marginLeft: 10 }]}>{answer.substring(2)}</Text>
                                                     </TouchableOpacity>
                                                 );
                                             })
