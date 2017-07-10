@@ -50,6 +50,9 @@ class Exercise extends Component {
                             <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.goBack()}}>
                                 <Text>BACK</Text>
                             </TouchableOpacity>
+                            <TouchableOpacity style={styles.button} onPress={() => {this.props.navigation.navigate('MiniGameSCR')}}>
+                                <Text>START</Text>
+                            </TouchableOpacity>
                        </View>
                        </View>
                        
@@ -80,13 +83,14 @@ export default connect(mapStateToProps)(Exercise);
      },
      buttonContainer: {
          alignItems: 'center',
-         justifyContent: 'center',
+         justifyContent: 'space-around',
          height: 50,
          marginLeft: 20,
          marginRight: 20,
          marginTop: 5,
          marginBottom: 5,
-         borderRadius: 10
+         borderRadius: 10,
+         flexDirection: 'row'
      },
      button: {
          backgroundColor: 'aqua',

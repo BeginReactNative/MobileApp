@@ -1,11 +1,19 @@
-import {StackNavigator} from 'react-navigation';
-import Choose from '../screens/authorized/Test1';
-import Game from '../screens/TestScreen';
+import { StackNavigator } from 'react-navigation';
+import ChooseScreen from '../screens/authorized/game/Choose';
+import GameScreen from '../screens/authorized/game/GameView';
 const TestNav = StackNavigator({
-    Choose: { screen: Choose,navigationOptions:{
-        header: null
-    } },
-    Game: {screen: Game ,navigationOptions:{ header: null}}
+    Choose: {
+        screen: ChooseScreen,
+        navigationOptions: {
+            header: null
+        }
+    },
+    Game: {
+        screen: GameScreen,
+        navigationOptions: {
+            header: null
+        }
+    }
 })
 
 export default TestNav;
