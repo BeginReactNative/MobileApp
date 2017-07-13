@@ -16,13 +16,15 @@ import {
     Tab,
     Tabs
 } from 'native-base';
-import Created from './CreatedTab/Created';
-import Joined from './JoinedTab/Joined';
-import Popular from './PopularTab/Popular';
+import Description from './LessonDetail';
+import Document from '../document_tab/Document';
+import Lesson from './LessonList';
+import Discussion from '../discussion_tab/Discussion';
 
 
-export default class HomeScreen extends React.Component {
-   
+
+export default class ChildLesson extends React.Component {
+
 
     render() {
         return (
@@ -31,9 +33,9 @@ export default class HomeScreen extends React.Component {
                     <Left>
                         <Button
                             transparent
-                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                            onPress={() => this.props.navigation.goBack()}
                         >
-                            <Icon name="menu" />
+                            <Icon name="md-arrow-round-back" />
                         </Button>
                     </Left>
                     <Body>
@@ -48,7 +50,7 @@ export default class HomeScreen extends React.Component {
                         </Button>
                         <Button
                             transparent
-                         onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
                         >
                             <Icon name="share" />
                         </Button>
@@ -62,20 +64,23 @@ export default class HomeScreen extends React.Component {
 
                 </Header>
                 <Tabs >
-                    <Tab heading="CREATED" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
-                        <Created navigation={this.props.navigation}/>
+                    <Tab heading="Description" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }} >
+                        <Description navigation={this.props.navigation} />
                     </Tab>
-                    <Tab heading="JOINED" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Joined />
+                    <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                        <Lesson navigation={this.props.navigation} />
                     </Tab>
-                    <Tab heading="POPULAR" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Popular />
+                     <Tab heading="Documents" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                        <Document navigation={this.props.navigation} />
                     </Tab>
-                   
+                     <Tab heading="Discussion" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
+                        <Discussion navigation={this.props.navigation} />
+                    </Tab>
+
 
                 </Tabs>
-                    
-                
+
+
             </Container>
         );
     }

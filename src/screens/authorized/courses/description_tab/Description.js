@@ -17,7 +17,7 @@ import PopupDialog, {
 import { connect } from 'react-redux';
 import { fetchCourseById } from '../../../../redux/actions/courseByID';
 import Header from '../../../../components/Header';
-import Courses from '../../home/created_tab/People';
+
 
 class Description extends Component {
 

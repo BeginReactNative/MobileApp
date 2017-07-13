@@ -4,7 +4,7 @@ import {Button} from 'native-base';
 
 class Join extends Component {
     render() {
-          console.log('Navigation',this.props.navigation)
+        
         return (
             
                 <View style={{ flex: 1,justifyContent:'space-between',alignItems:'center' }}>

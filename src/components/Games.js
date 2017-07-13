@@ -20,7 +20,7 @@ class Games extends Component {
         })
     }
     handleAnswer(answer) {
-        console.log('Cau thu ','/','So cau hoi',(this.state.start + 1),'/',this.props.navigation.state.params.questionsCount)
+       
         if(this.state.start == 9) {
            
 

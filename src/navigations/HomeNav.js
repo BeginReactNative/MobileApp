@@ -27,7 +27,7 @@ const HomeNav = TabNavigator({
 
     },
     tabBarPosition: 'bottom',
-    swipeEnabled: false,
+ 
    
 });
 export default HomeNav;

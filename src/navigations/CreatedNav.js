@@ -4,7 +4,7 @@ import Course from '../screens/authorized/course/Course';
 import Popular from '../screens/authorized/home/popular_tab/Popular';
 import Join from '../screens/authorized/join/Join';
 import Vote from '../screens/authorized/vote/Vote';
-import LessonList from '../screens/authorized/courses/lesson_tab/LessonList';
+import LessonList from '../screens/authorized/courses/lesson_tab/ChildLesson';
 import LessonDetail from '../screens/authorized/courses/lesson_tab/LessonDetail';
 import Exercise from '../screens/authorized/courses/lesson_tab/Exercise';
 import Choose from '../screens/authorized/game/Choose';

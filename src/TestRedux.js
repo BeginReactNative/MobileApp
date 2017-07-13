@@ -24,14 +24,14 @@ class Test extends Component {
     }
 }
 function mapStateToProps(state) {
-    console.log('mapStateToProps', state)
+ 
     return {
         numberProps: state.testReducer.number,
         dataProps: state.dataReducer
     }
 }
 function mapDispatchToProps(dispatch) {
-    console.log('mapDispatchToProps',dispatch)
+ 
     return {
         addNumber: () => dispatch(addNumber()),
         subNumber: () => dispatch(subNumber()),

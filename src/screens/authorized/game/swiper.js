@@ -424,7 +424,7 @@ export default class extends Component {
   scrollViewPropOverrides = () => {
     const props = this.props
     let overrides = {}
-    console.log("Bo may vua keo");
+  
 
     /*
      const scrollResponders = [

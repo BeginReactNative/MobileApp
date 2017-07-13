@@ -35,7 +35,7 @@ class Game extends Component {
     }
 //  === (this.state.start + 1)
     _handleAnswer(answer) {
-        console.log('Cau thu ','/','So cau hoi',(this.state.start + 1),'/',this.props.navigation.state.params.questionsCount)
+        
         if(this.state.start == 9) {
            
 
@@ -58,7 +58,7 @@ class Game extends Component {
         });
     }
     render() {
-       console.log('Du Lieu Chuyen Qua',this.props)
+      
       return(
           <View style={{ flex: 1 }}>
               <View style={{ height: 300, justifyContent: 'center', alignItems: 'center' }}>

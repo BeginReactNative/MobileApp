@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { View, Text, Dimensions,FlatList,ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import Header from '../../../../components/Header';
-import CardItem from '../../../../components/CardPopular';
-import Carousel from 'react-native-snap-carousel';
+import Card from '../../../../components/CardCreated';
+
 const { width, height } = Dimensions.get('window')
 class Popular extends Component {
-
+    _renderItem = ({ item }) => (
+        <Card
+            avatar={item.avatar}
+            createDate={item.createDate}
+            shortDescription={item.shortDescription}
+            name={item.name}
+            ownerName={item.ownerName}
+            navigation={() => { this.props.navigation.navigate('CourseSCR', { courseId: item.id }) }}
+        />
+    )
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -15,57 +24,51 @@ class Popular extends Component {
                     title={'LoxoToeic'}
                 />
                 <ScrollView>
-                    <Text>Technology</Text>
-               
-                    <Text>English</Text>
-                    <Carousel
-                        ref={(carousel) => { this._carousel = carousel; }}
-                        sliderWidth={width}
-                        autoplay
-                        itemWidth={width - 20}
-
-                    >
-                        <CardItem />
-                        <CardItem />
-                        <CardItem />
-                        <CardItem />
-                    </Carousel>
-                    <Text>Healthy!</Text>
-                    <Carousel
-                        ref={(carousel) => { this._carousel = carousel; }}
-                        sliderWidth={width}
-                        autoplay
-
-                        itemWidth={width - 20}
-
-                    >
-                        <CardItem />
-                        <CardItem />
-                        <CardItem />
-                        <CardItem />
-                    </Carousel>
-                    <Text>Sports!</Text>
-                    <Carousel
-                        ref={(carousel) => { this._carousel = carousel; }}
-                        sliderWidth={width}
-                        autoplay
-
-                        itemWidth={width - 20}
-
-                    >
-                        <CardItem />
-                        <CardItem />
-                        <CardItem />
-                        <CardItem />
-                    </Carousel>
-
+                
+                <Text>Technology</Text>
+                <FlatList
+                    horizontal
+                    data={this.props.courses.data}
+                    extraData={this.state}
+                    keyExtractor={item => item.id}
+                    renderItem={this._renderItem}
+                />
+                <Text>English</Text>
+                <FlatList
+                    horizontal
+                    data={this.props.courses.data}
+                    extraData={this.state}
+                    keyExtractor={item => item.id}
+                    renderItem={this._renderItem}
+                />
+                <Text>Healthy!</Text>
+                <FlatList
+                    horizontal
+                    data={this.props.courses.data}
+                    extraData={this.state}
+                    keyExtractor={item => item.id}
+                    renderItem={this._renderItem}
+                />
+                <Text>Sports!</Text>
+                 <FlatList
+                    horizontal
+                    data={this.props.courses.data}
+                    extraData={this.state}
+                    keyExtractor={item => item.id}
+                    renderItem={this._renderItem}
+                />
                 </ScrollView>
             </View>
         );
     }
 }
 
-export default connect()(Popular);
+export const mapStateToProps = (state) => {
+    return {
+        courses: state.dataReducer
+    }
+}
+export default connect(mapStateToProps)(Popular);
 /**
  * <TouchableOpacity onPress={() => this.props.navigation.navigate('CourseSCR')}>
                 <Text> Popular Screen</Text>

@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { Icon } from 'native-base';
 import Swiper from './swiper';
+
 export default class GameView extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +23,10 @@ export default class GameView extends Component {
         textButtonSubMit = "Nộp bài";
         dataExam = [];
     }
+    // Pop screen when touch choices
+    touchChoices() {
 
+    }
     // function handle countDownClock
     countDown() {
         this.setState({

@@ -26,7 +26,7 @@ class CardLesson extends Component {
         }
     }
     render() {
-        console.log('Card Lesson',this.props.name,this.props.childTopic,this.props.childrentType)
+       
         return (
             <TouchableOpacity onPress={() => {this.checkChildType()}}>
             <View style={styles.container}>

@@ -4,15 +4,14 @@ import {
     StyleSheet,
     Text,
     Image,
-    ScrollView,
-   // TouchableOpacity,
     Dimensions,
-    View
+    View,
+    FlatList
 } from 'react-native';
-import {Icon} from 'native-base';
+import { Icon } from 'native-base';
 import Card from '../../../../components/CardCreated';
-import {connect} from 'react-redux';
-import {fetchCoursesById} from '../../../../redux/actions/dataAction';
+import { connect } from 'react-redux';
+import { fetchCoursesById } from '../../../../redux/actions/dataAction';
 import Header from '../../../../components/Header';
 
 
@@ -21,15 +20,25 @@ import Header from '../../../../components/Header';
 
 
 class Created extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        url= `http://api-dot-hola-edu.appspot.com/api?action=getRandomCourses`
+        url = `http://api-dot-hola-edu.appspot.com/api?action=getRandomCourses`
     }
-    componentWillMount(){
+    componentWillMount() {
         this.props.getCourses(url)
     }
+    _renderItem = ({ item }) => (
+        <Card
+            avatar={item.avatar}
+            createDate={item.createDate}
+            shortDescription={item.shortDescription}
+            name={item.name}
+            ownerName={item.ownerName}
+            navigation={() => { this.props.navigation.navigate('CourseSCR', { courseId: item.id }) }}
+        />
+    )
     render() {
-       
+
         return (
             <View style={{ flex: 1 }}>
                 <Header
@@ -39,38 +48,28 @@ class Created extends Component {
                 {
                     this.props.courses.isFetching && <Text>Loading</Text>
                 }
-                    <ScrollView>
-                     {this.props.courses.data.map((course, i) =>
-                        <Card key={i}
-                            avatar={course.avatar}
-                            createDate={course.createDate}
-                            shortDescription={course.shortDescription}
-                            name={course.name}
-                            ownerName={course.ownerName}
-                            navigation={() => {this.props.navigation.navigate('CourseSCR',{courseId:course.id})}}
-                            
-                        />
-                    )}
-                    </ScrollView>
-                   
-
-               
+                <FlatList
+                    data={this.props.courses.data}
+                    extraData={this.state}
+                    keyExtractor={item => item.id}
+                    renderItem={this._renderItem}
+                />
             </View>
         );
     }
 }
 const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
-	container: {
-		paddingTop: 40,
-		flex: 1,
-		justifyContent: 'space-between',
-	},
-	exampleTitle: {
-		fontSize: 28,
-		fontFamily: 'Futura-Medium'
-	},
-	
+    container: {
+        paddingTop: 40,
+        flex: 1,
+        justifyContent: 'space-between',
+    },
+    exampleTitle: {
+        fontSize: 28,
+        fontFamily: 'Futura-Medium'
+    },
+
 });
 export const mapStateToProps = (state) => {
     return {
@@ -84,4 +83,4 @@ export const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Created);
+export default connect(mapStateToProps, mapDispatchToProps)(Created);

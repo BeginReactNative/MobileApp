@@ -10,7 +10,7 @@ class CardItem extends Component  {
        componentDidMount() {
     }
     render() {
-        console.log('CARD CREATED PROPS', this.props)
+       
         return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
         },
         maxWidth: width,
         shadowRadius: 5,
-        shadowOpacity: 1.0
+        shadowOpacity: 1.0,
+        elevation: 4
     },
     header: {
         flex: 4,

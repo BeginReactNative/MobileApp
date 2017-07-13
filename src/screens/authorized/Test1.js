@@ -93,7 +93,7 @@ export default class swiper extends Component {
 
                         test.scrollTo({x: (total.index * 70), y: 0, animated: false});
 
-                        console.log(this.swiperRef.state.index);
+                      
                     }
                     }
                     paginationStyle={{
