@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleProvider,Container } from 'native-base';
 import { Provider } from 'react-redux';
 import store from './configureStore';
-import Test from './navigations/TestNav';
+
 import TestCom from './TestComponent';
 import RootNav from './navigations/RootNav';
 import getTheme from '../native-base-theme/components';

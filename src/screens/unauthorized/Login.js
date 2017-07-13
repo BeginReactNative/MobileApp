@@ -8,6 +8,9 @@ class Login extends Component {
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('SignInSCR')}>
                 <Text> Login Screen</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Authorized')}>
+                <Text> Home Screen</Text>
+                </TouchableOpacity>
             </View>            
         );
     }

@@ -1,7 +1,7 @@
 import { TabNavigator } from 'react-navigation';
-import Created from './CreatedNav';
-import Joined from './JoinedNav';
-import Popular from './PopularNav';
+import Created from '../screens/authorized/home/created_tab/Created';
+import Joined from '../screens/authorized/home/joined_tab/Joined';
+import Popular from '../screens/authorized/home/popular_tab/Popular';
 const HomeNav = TabNavigator({
     Created: {
         screen: Created

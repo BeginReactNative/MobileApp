@@ -17,7 +17,6 @@ import {
     Tabs
 } from 'native-base';
 import Description from './LessonDetail';
-import Document from '../document_tab/Document';
 import Lesson from './LessonList';
 import Discussion from '../discussion_tab/Discussion';
 
@@ -38,22 +37,10 @@ export default class ChildLesson extends React.Component {
                             <Icon name="md-arrow-round-back" />
                         </Button>
                     </Left>
-                    <Body>
-                        <Title>TOEIC</Title>
+                    <Body style={{maxWidth: 100}}>
+                        <Title>{this.props.navigation.state.params.title}</Title>
                     </Body>
                     <Right>
-                        <Button
-                            transparent
-                            onPress={() => this.props.navigation.navigate('Search')}
-                        >
-                            <Icon name="search" />
-                        </Button>
-                        <Button
-                            transparent
-                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                        >
-                            <Icon name="share" />
-                        </Button>
                         <Button
                             transparent
                             onPress={() => this.props.navigation.navigate('DrawerOpen')}
@@ -69,9 +56,6 @@ export default class ChildLesson extends React.Component {
                     </Tab>
                     <Tab heading="Lesson" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Lesson navigation={this.props.navigation} />
-                    </Tab>
-                     <Tab heading="Documents" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
-                        <Document navigation={this.props.navigation} />
                     </Tab>
                      <Tab heading="Discussion" textStyle={{ fontSize: 10 }} activeTextStyle={{ fontSize: 12 }}>
                         <Discussion navigation={this.props.navigation} />

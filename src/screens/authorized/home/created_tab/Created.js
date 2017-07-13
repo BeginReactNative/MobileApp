@@ -20,6 +20,7 @@ import Header from '../../../../components/Header';
 
 
 class Created extends Component {
+
     constructor(props) {
         super(props);
         url = `http://api-dot-hola-edu.appspot.com/api?action=getRandomCourses`
@@ -34,7 +35,7 @@ class Created extends Component {
             shortDescription={item.shortDescription}
             name={item.name}
             ownerName={item.ownerName}
-            navigation={() => { this.props.navigation.navigate('CourseSCR', { courseId: item.id }) }}
+            navigation={() => { this.props.navigation.navigate('CourseSCR', { courseId: item.id, title:item.name }) }}
         />
     )
     render() {
@@ -43,8 +44,13 @@ class Created extends Component {
             <View style={{ flex: 1 }}>
                 <Header
                     openMenu={() => this.props.navigation.navigate('DrawerOpen')}
-                    title={'LoxoToeic'}
+                    title={'E-Learning'}
+                    menu={true}
+                    search={true}
+                    share={true}
+                    notification={true}
                 />
+                <Text></Text>
                 {
                     this.props.courses.isFetching && <Text>Loading</Text>
                 }

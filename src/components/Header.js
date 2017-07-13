@@ -25,39 +25,57 @@ export default class Headers extends Component {
         return (
 
             <Header hasTabs>
-                <Left>
-                    <Button
-                        transparent
-                        onPress={this.props.openMenu}
-                    >
-                        <Icon name="menu" />
-                    </Button>
-                </Left>
+                {
+                    //Show menu button
+                    this.props.menu ? (
+                        <Left>
+                            <Button
+                                transparent
+                                onPress={this.props.openMenu}
+                            >
+                                <Icon name="menu" />
+                            </Button>
+                        </Left>
+                    ) : null
+                }
                 <Body>
                     <Title>{this.props.title}</Title>
                 </Body>
                 <Right>
-                    <Button
-                        transparent
-                        onPress={() => this.props.navigation.navigate('Search')}
-                    >
-                        <Icon name="search" />
-                    </Button>
-                    <Button
-                        transparent
-                        onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                    >
-                        <Icon name="share" />
-                    </Button>
-                    <Button
-                        transparent
-                        onPress={() => {this.popupDialog.show()}}
-                    >
-                        <Icon name="notifications" />
-                    </Button>
-                   
+                    {
+                        // Show search button?
+                        this.props.search ? (
+                            <Button
+                                transparent
+                                onPress={() => this.props.navigation.navigate('Search')}
+                            >
+                                <Icon name="search" />
+                            </Button>
+                        ) : null
+                    }
+                    {
+                        this.props.share ? (
+                            <Button
+                                transparent
+                                onPress={() => this.props.navigation.navigate('DrawerOpen')}
+                            >
+                                <Icon name="share" />
+                            </Button>
+                        ) : null
+                    }
+                    {
+                        this.props.notification ? (
+                            <Button
+                                transparent
+                                onPress={() => { this.popupDialog.show() }}
+                            >
+                                <Icon name="notifications" />
+                            </Button>
+                        ) : null
+                    }
+
                 </Right>
-                
+
             </Header>
 
         )

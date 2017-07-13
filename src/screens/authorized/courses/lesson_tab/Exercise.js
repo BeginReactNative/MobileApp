@@ -5,6 +5,7 @@ import {fetchCardById} from '../../../../redux/actions/cardById';
 import Swiper from 'react-native-swiper';
 import Carousel from 'react-native-snap-carousel';
 import CardExercise from '../../../../components/CardExercise';
+import Header from '../../../../components/Header';
 const {width, height} = Dimensions.get('window')
 class Exercise extends Component {
     constructor(props) {
@@ -25,8 +26,16 @@ class Exercise extends Component {
          this.props.getFinalCard(`http://api-dot-hola-edu.appspot.com/api?action=getCards&ids=[${value}]`)
     }
     render() {
+        console.log('AAAAA',this.props)
         return (
             <View style={styles.container}>
+                 <Header 
+                    title={this.props.cards.name}
+                    menu={false}
+                    search={false}
+                    share={false}
+                    notification={false}
+                />
             {
                 this.props.isFetching && <Text>Loading...!</Text>
             }

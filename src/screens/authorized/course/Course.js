@@ -16,6 +16,7 @@ import {
     Tab,
     Tabs
 } from 'native-base';
+
 import Description from '../courses/description_tab/Description';
 import Discussion from '../courses/discussion_tab/Discussion';
 import Lesson from '../courses/lesson_tab/Lesson';
@@ -38,7 +39,7 @@ export default class HomeScreen extends React.Component {
                         </Button>
                     </Left>
                     <Body>
-                        <Title>TOEIC</Title>
+                        <Title>{this.props.navigation.state.params.title}</Title>
                     </Body>
                     <Right>
                         <Button
@@ -47,12 +48,7 @@ export default class HomeScreen extends React.Component {
                         >
                             <Icon name="search" />
                         </Button>
-                        <Button
-                            transparent
-                            onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                        >
-                            <Icon name="share" />
-                        </Button>
+                      
                         <Button
                             transparent
                             onPress={() => this.props.navigation.navigate('DrawerOpen')}

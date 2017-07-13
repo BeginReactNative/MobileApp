@@ -16,7 +16,7 @@ import PopupDialog, {
 
 import { connect } from 'react-redux';
 import { fetchCourseById } from '../../../../redux/actions/courseByID';
-import Header from '../../../../components/Header';
+
 
 
 class Description extends Component {
@@ -25,9 +25,7 @@ class Description extends Component {
         super(props);
         url = `http://api-dot-hola-edu.appspot.com/api?action=getCourses&ids=[${this.props.navigation.state.params.courseId}]`
         this.state = {
-
             starCount: this.props.vote,
-
         }
     }
     onStarRatingPress(rating) {
@@ -39,8 +37,6 @@ class Description extends Component {
     componentWillMount() {
         // this.getCourseById(this.props.navigation.state.params.courseId)
         this.props.getCourseById(`http://api-dot-hola-edu.appspot.com/api?action=getCourses&ids=[${this.props.navigation.state.params.courseId}]`)
-
-
     }
 
     render() {
@@ -162,15 +158,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Description);
 
-/**
- * Navigate 
- *   <TouchableOpacity onPress={() => this.props.navigation.navigate('JoinSCR')}>
-                    <Text>Goto Join Screen</Text>
-                </TouchableOpacity>
-                   <TouchableOpacity onPress={() => this.props.navigation.navigate('JoinSCR')}>
-                    <Text>Goto Vote Screen</Text>
-                </TouchableOpacity>
-                 <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                    <Text>Back</Text>
-                </TouchableOpacity>
- */

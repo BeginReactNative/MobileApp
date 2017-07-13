@@ -10,22 +10,26 @@ import {
     StyleSheet
 } from 'react-native';
 import { Icon } from 'native-base';
+import Display from 'react-native-display';
 import Swiper from './swiper';
-
+const { width, height } = Dimensions.get('window')
 export default class GameView extends Component {
     constructor(props) {
         super(props);
         this.state = {
             selectAnswer: [-1],//array player choose answer
             seconds: 3670,//time for exam
+            enable: false
         }
         listCorrect = [];
         textButtonSubMit = "Nộp bài";
         dataExam = [];
     }
     // Pop screen when touch choices
-    touchChoices() {
-
+    toggleDisplay() {
+        let toggle = !this.state.enable;
+        this.setState({ enable: toggle });
+        console.log('Vua moi Click day...')
     }
     // function handle countDownClock
     countDown() {
@@ -85,10 +89,10 @@ export default class GameView extends Component {
                 >
                     {
                         dataExam.map((itemData, j) => {
-                            textIdQuestion = "Câu " + (j+1) + ":";
+                            textIdQuestion = "Câu " + (j + 1) + ":";
                             textQuestion = itemData.frontText;
-                             var ABC = itemData.multiChoices.concat(itemData.backText)
-                        
+                            var ABC = itemData.multiChoices.concat(itemData.backText)
+
                             return (
                                 <View key={j} style={{ flex: 1, margin: 20 }}>
                                     <ScrollView>
@@ -96,7 +100,7 @@ export default class GameView extends Component {
                                         <Text style={styles.textContent}>{textQuestion}</Text>
                                         <View style={styles.line} />
                                         {
-                                            
+
                                             ABC.map((itemAnser, i) => {
                                                 answer = itemAnser;
                                                 listAnswer = ["A", "B", "C", "D"];
@@ -105,7 +109,8 @@ export default class GameView extends Component {
                                                         key={i}
                                                         style={styles.itemAnswer}
                                                         onPress={() => {
-                                                            this.state.selectAnswer[j] = i + 1;
+                                                            this.state.selectAnswer[j] = i + 1
+                                                            this.toggleDisplay()
                                                         }}
                                                     >
                                                         {
@@ -132,8 +137,21 @@ export default class GameView extends Component {
                             )
                         })
                     }
-                </Swiper>
 
+                </Swiper>
+                <TouchableOpacity style={styles.center} onPress={this.toggleDisplay.bind(this)}>
+
+                    <Display
+                        enable={this.state.enable}
+                        enterDuration={500}
+                        exitDuration={250}
+                        exit="fadeOutDown"
+                        enter="fadeInUp"
+                    >
+                        <View style={[styles.circle, { backgroundColor: '#9b59b6' }]} />
+                    </Display>
+
+                </TouchableOpacity>
                 {/*View footer*/}
                 <View style={styles.footer}>
                     <View style={styles.countDownClock}>
@@ -148,40 +166,6 @@ export default class GameView extends Component {
         )
     }
 }
-//redner ra View Bottom
-// const renderPagination = (index, total, context) => {
-
-//     items = [];
-//     for (let i = 0; i < total; i++) {
-//         items.push(
-//             <TouchableOpacity key={i} onPress={() => {
-//                 context.scrollBy(i);
-//             }}>
-//                 <View style={[(i === index) ? styles.action : styles.noAction]}>
-//                     <Text style={{ textAlign: 'center', color: 'orange', fontSize: 20 }}>
-//                         {i + 1}
-//                     </Text>
-//                 </View>
-//             </TouchableOpacity>
-//         )
-//     }
-//     return (
-//         <View style={{
-//             position: 'absolute',
-//             bottom: heightScreen / 13 + 20,
-//             flexDirection: 'row',
-//         }}>
-//             <ScrollView
-//                 horizontal
-//                 style={{ flex: 1, backgroundColor: 'white' }}
-//                 ref={(scrollView) => this.scrollView = scrollView}
-//                 showsHorizontalScrollIndicator={false}
-//             >
-//                 {items}
-//             </ScrollView>
-//         </View>
-//     )
-// };
 
 
 
@@ -235,7 +219,21 @@ const styles = StyleSheet.create({
         flex: 3, borderTopWidth: 0.5, borderTopColor: '#e6e6e6',
         flexDirection: 'row', alignItems: 'center'
     },
-
+    center: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        position: 'absolute',
+        top: height - 270,
+        left:10,
+        right:10
+    },
+    circle: {
+        borderRadius: 10,
+        height: height * 0.35,
+        width: width - 20,
+        
+    },
 
 });
 
