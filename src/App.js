@@ -9,6 +9,7 @@ import getTheme from '../native-base-theme/components';
 import material from '../native-base-theme/variables/material';
 class App extends Component {
     render() {
+        console.disableYellowBox = true;
         return (
             <Provider store={store}>
             

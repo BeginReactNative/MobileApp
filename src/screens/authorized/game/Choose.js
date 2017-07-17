@@ -40,7 +40,7 @@ class Choose extends Component {
     }
     press() {
         //do anything you want
-        this.props.navigation.navigate('Game', { dataExam: this.props.finalCard.slice(0, 20) })
+        this.props.navigation.navigate('Game')
         
     }
     onPress() {
@@ -182,11 +182,3 @@ const mapStateToProps = (state) => {
 }
 export default connect(mapStateToProps)(Choose);
 
-//                      <TouchableOpacity
-//                         style={styles.buttonStart}
-//                         onPress={() => navigate('Game', { dataExam: this.props.finalCard.slice(0, 20) })}>
-//                         <Text
-//                             style={styles.textButtonStart}>
-//                             {textButtonStart}
-//                         </Text>
-//                     </TouchableOpacity>
