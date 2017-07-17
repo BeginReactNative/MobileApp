@@ -9,7 +9,12 @@
 	"dependencies": {
 		"native-base": "^2.2.0",
 		"react": "16.0.0-alpha.12",
+<<<<<<< HEAD
 		"react-native": "^0.45.1",
+=======
+		"react-native": "0.45.1",
+		"react-native-app-intro": "^1.1.5",
+>>>>>>> ad7aeb091f4b0388d8ec98808368882ab7b2374f
 		"react-native-bar-collapsible": "^1.5.2",
 		"react-native-cardstack": "^1.0.1",
 		"react-native-collapsible": "^0.8.0",

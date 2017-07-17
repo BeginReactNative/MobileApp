@@ -1,7 +1,7 @@
 import React from 'react';
 import { DrawerNavigator } from 'react-navigation'; 
 import HomeTab from './HomeNav';
-import Menu from '../screens/authorized/Menu';
+import Menu from '../screens/authorized/menu/Menu';
 
 const AppDrawer = DrawerNavigator({
     HomeSCR: {
@@ -13,7 +13,7 @@ const AppDrawer = DrawerNavigator({
     {
         drawerWidth: 250,
         drawerPosition: 'left',
-        contentComponent: props => <Menu />
+        contentComponent: props => <Menu {...props}/>
     }
 )
 export default AppDrawer;
