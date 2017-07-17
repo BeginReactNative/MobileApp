@@ -39,10 +39,6 @@ class GameView extends Component {
         }
     }
 
-    onPressUserChoose() {
-
-    }
-
     render() {
 
         return (
